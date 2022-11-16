@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   # # A visitor can add a new review to a restaurant - nesting?!
   # get 'restaurants/:restaurant_id/reviews/new', to: 'reviews#new', as: 'review_new'
   # post 'restaurants/:restaurant_id/reviews', to: 'reviews#create', as: 'review_create'
-
+  root to: 'restaurants#index'
   resources :restaurants, only: [:index, :new, :create, :show] do
-    resources :reviews, only: [:index, :create, :new]
+    resources :reviews, only: [:create]
   end
 end
